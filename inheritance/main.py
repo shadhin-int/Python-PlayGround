@@ -1,0 +1,63 @@
+import csv
+
+
+class Item:
+    pay_rate = 0.8  # The pay rate after 20% discount
+    all_items = []
+
+    def __init__(self, name: str, price: float, quantity=0):
+        # Validation for received arguments
+        assert price >= 0, f"Your Price={price} can't be equal or less than zero"
+        assert quantity >= 0, f"Your quantity={quantity} can't be equal or less than zero"
+
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+        # add all items to all_items list
+        Item.all_items.append(self)
+
+    def calculate_total_price(self):
+        return self.price * self.quantity
+
+    def apply_discount(self):
+        self.price = self.price * self.pay_rate
+
+    @classmethod
+    def instantiate_from_csv(cls):
+        with open('items.csv', 'r') as items_file:
+            reader = csv.DictReader(items_file)
+            items = list(reader)
+
+        for item in items:
+            Item(
+                name=item.get('name'),
+                price=float(item.get('price')),
+                quantity=int(item.get('quantity')),
+            )
+
+    @staticmethod
+    def is_integer(num):
+        if isinstance(num, float):
+            return num.is_integer()
+        elif isinstance(num, int):
+            return True
+        else:
+            return False
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+
+
+class Phone(Item):
+    def __init__(self, name: str, price: float, quantity=0, broken_phones=0):
+        super().__init__(
+            name, price, quantity
+        )
+        assert broken_phones >= 0, f"Broken Phones {broken_phones} is not greater or equal to zero!"
+        self.broken_phones = broken_phones
+
+
+phone1 = Phone("jscPhonev10", 500, 5, 1)
+
+print(Item.all)
