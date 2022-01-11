@@ -1,0 +1,7 @@
+https://www.prothomalo.com/'
+https://www.hackerrank.com/dashboard'
+https://leetcode.com/'
+https://dev.to/'
+https://something.com'
+https://www.django-rest-framework.org/tutorial/quickstart/#project-setup'
+https://realpython.com/python-kwargs-and-args/'
