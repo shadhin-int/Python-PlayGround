@@ -5,3 +5,4 @@ new site https://dev.to/
 https://something.com
 https://www.django-rest-framework.org/tutorial/quickstart/#project-setup
 https://realpython.com/python-kwargs-and-args/
+https://www.django-rest-framework.org/community/tutorials-and-resources/
