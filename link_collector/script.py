@@ -4,21 +4,23 @@ import re
 from os.path import exists
 
 
-def is_url_exist(url):
-    with open('link_data.txt', 'r+') as f:
+def check_url_exist(url):
+    with open('links.txt', 'r+') as f:
         for line in f.readlines():
             if url in line:
-                print("Not found any new data for add!")
                 return True
         return False
 
-def add_to_txt_file(data, mode):
-    with open('link_data.txt', mode=mode) as f:
-        aa = is_url_exist(url=data)
-        if aa is not True:
-            f.write(data)
+def add_to_txt_file(url, mode):
+    with open('links.txt', mode=mode) as f:
+        is_url_exist = check_url_exist(url=url)
+        if is_url_exist is False:
+            f.write(url)
             f.write('\n')
-            print(f"New link -> {data} added...")
+            print(f"New link -> {url} added...")
+        else:
+            print("Not found any new data ...!")
+
 
 
 def main():
@@ -28,13 +30,13 @@ def main():
 
         if response.status_code in [200,201]:
             for data in response.iter_lines():
-                ress = re.search("(?P<url>https?://[^\s]+)", str(data)).group("url")
-                is_file_exit = exists('link_data.txt')
+                get_url = re.search("(?P<url>https?://[^\s]+)", str(data)).group("url")
+                is_file_exit = exists('links.txt')
                 if is_file_exit is True:
-                    add_to_txt_file(data=ress, mode='a+')
+                    add_to_txt_file(url=get_url, mode='a+')
                 else:
                     print("File not found.... create file and add your data....")
-                    add_to_txt_file(data=ress, mode='w+')
+                    add_to_txt_file(url=get_url, mode='w+')
 
 
 
