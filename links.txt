@@ -3,3 +3,4 @@ https://www.hackerrank.com/dashboard
 https://leetcode.com/
 new site https://dev.to/
 https://something.com
+https://www.django-rest-framework.org/tutorial/quickstart/#project-setup
