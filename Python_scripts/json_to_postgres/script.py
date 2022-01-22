@@ -40,7 +40,7 @@ def validation_data(val):
             return val
 cur = conn.cursor()
 # create a table with one column of type JSON
-# cur.execute("CREATE TABLE placed_order (data json);")
+cur.execute("CREATE TABLE IF NOT EXIST placed_order (data json);")
 
 # if conn:
 #     for i, item in enumerate(data):
