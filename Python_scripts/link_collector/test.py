@@ -17,5 +17,4 @@ for file in os.listdir():
 	if file.endswith(".txt"):
 		file_path = f"{path}/{file}"
 		is_file_update = os.path.getmtime(file)
-		print(is_file_update, "<-----------------")
 		read_text_file(file_path)
