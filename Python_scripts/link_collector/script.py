@@ -36,7 +36,6 @@ def main():
                 "(?P<url>https?://[^\s]+)", str(data)).group("url")
             is_file_exit = exists('links.txt')
             is_file_update = os.path.getmtime('links.txt')
-            print(is_file_update, "<---------------------------------")
             if is_file_exit is True:
                 add_to_txt_file(url=get_url, mode='a+')
             else:
