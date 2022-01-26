@@ -21,11 +21,9 @@ class Stack():
     def get_stack(self):
         return self.items
 
-my_stack = Stack()
-my_stack.push('A')
-my_stack.push('B')
-print(my_stack.get_stack())
-my_stack.push('C')
-print(my_stack.get_stack())
-my_stack.pop()
-print(my_stack.get_stack())
+myStack = Stack()
+myStack.push("A")
+myStack.push("B")
+myStack.push("C")
+myStack.push("D")
+print(myStack.peek())
