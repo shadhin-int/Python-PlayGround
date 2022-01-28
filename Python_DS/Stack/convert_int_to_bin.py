@@ -4,6 +4,10 @@ stack = Stack()
 
 
 def convert_int_to_bin(dec_number):
+
+    if dec_number is None:
+        return False
+
     bin_value = ""
     while dec_number > 0:
         rem = dec_number % 2
