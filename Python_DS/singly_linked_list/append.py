@@ -13,6 +13,7 @@ class LinkedList:
             print(curr_node.data)
             curr_node = curr_node.next
     
+    #added data in next
     def append(self,data):
         new_node = Node(data)
         if self.head is None:
@@ -23,6 +24,7 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = new_node
     
+    #add data in first
     def prepend(self,data):
         new_node = Node(data)
 
