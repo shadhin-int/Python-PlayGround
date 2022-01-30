@@ -41,9 +41,6 @@ class LinkedList:
         prev_node.next = new_node
 
 
-
-
-
 llist = LinkedList()
 llist.append("A")
 llist.append("B")
