@@ -39,15 +39,23 @@ class LinkedList:
         new_node = Node(data)
         new_node.next = prev_node.next
         prev_node.next = new_node
-    
+
+    #Delete node by value
     def delete_node(self, key):
         curr_node = self.head
 
         if curr_node and curr_node.next == key:
             self.head = curr_node.next
             curr_node == None
-
             return
+        prev = None
+        while curr_node and curr_node.data !=key:
+            prev = curr_node
+            curr_node = curr_node.next
+        if curr_node is None:
+            return
+        prev.next = curr_node.next
+        curr_node=None
 
 
 llist = LinkedList()
