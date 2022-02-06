@@ -64,7 +64,8 @@ llist.append("B")
 llist.append("C")
 llist.append("D")
 
-llist.prepend("E")
+llist.delete_node("B")
+llist.delete_node("E")
 
 
 llist.print_list() 
